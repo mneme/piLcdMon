@@ -1,7 +1,8 @@
 var ohw = require('./lib/openHardwareMonitor/openHardwareMonitor'),
     str = require('./lib/helpers/string'),
     formatter = require('./lib/formatters/general'),
-    lcd = require('./lib/lcd/manager');
+    lcd = require('./lib/lcd/manager'),
+    q = require('q');
 
 ohw.on('data', function(d){
 
@@ -15,25 +16,26 @@ ohw.on('data', function(d){
   var d = str.padR('C:   ' + (100 - formatter.getPercent(d.c.value)) + '%', 10).substring(0,10) +
           str.padL('D:   ' + (100 - formatter.getPercent(d.d.value)) + '%', 10).substring(0,10);
 
-  return lcd.display(0)
+  return q() 
     .then(function(){
       console.log('writing data');
+      lcd.display(0);
       lcd.reset();
       lcd.write(a);
       lcd.write(b);
       lcd.write(c);
       lcd.write(d);
-      return lcd.display(1);
     }) 
     .then(function(){
+      lcd.display(1);
       lcd.reset();
       lcd.write(a);
       lcd.write(b);
       lcd.write(c);
       lcd.write(d);
-      return lcd.display(2);
     }) 
     .then(function(){
+      lcd.display(2);
       lcd.reset();
       lcd.write(a);
       lcd.write(b);
