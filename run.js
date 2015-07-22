@@ -11,17 +11,24 @@ ohw.on('data', function(d){
       b = 'c1: ' + formatter.getBar(d.c1.value,16,'Ö','Ä'),
       c = 'c2: ' + formatter.getBar(d.c2.value,16,'Ö','Ä'),
       d = 'c3: ' + formatter.getBar(d.c3.value,16,'Ö','Ä');
-
+  console.log(1);
   var e = 'c:  ' + formatter.getBar(d.gpuCore.value,16,'Ö','Ä'),
       f = 'm:  ' + formatter.getBar(d.gpuMem.value,16,'Ö','Ä'),
       g = 'v:  ' + formatter.getBar(d.gpuVideo.value,16,'Ö','Ä'),
       h = 's:  ' + formatter.getBar(d.gpuShader.value,16,'Ö','Ä');
+  console.log(2);
 
   var i = str.padR('CPU: ' + formatter.getTemp(d.cpuTemp.value) + 'C', 10).substring(0,10) +
           str.padL('GPU: ' + formatter.getTemp(d.gpuTemp.value) + 'C', 10).substring(0,10);
-  
-  var j = str.padR('C:   ' + (100 - formatter.getPercent(d.c.value)) + '%', 10).substring(0,10) +
+    console.log(3);
+
+  var j = str.padR('t1:  ' + formatter.getTemp(d.temp1.value) + 'C', 10).substring(0,10) +
+          str.padL('t2:  ' + formatter.getTemp(d.temp2.value) + 'C', 10).substring(0,10);
+
+  console.log(4);
+  var k = str.padR('C:   ' + (100 - formatter.getPercent(d.c.value)) + '%', 10).substring(0,10) +
           str.padL('D:   ' + (100 - formatter.getPercent(d.d.value)) + '%', 10).substring(0,10);
+  console.log(5);
 
   return q() 
     .then(function(){
@@ -46,7 +53,7 @@ ohw.on('data', function(d){
       lcd.reset();
       lcd.write(i);
       lcd.write(j);
-      lcd.write(str.padR(20));
+      lcd.write(k);
       lcd.write(str.padR(20));
     })
     .catch(function(err){
