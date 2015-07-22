@@ -2,18 +2,25 @@ var ohw = require('./lib/openHardwareMonitor/openHardwareMonitor'),
     str = require('./lib/helpers/string'),
     formatter = require('./lib/formatters/general'),
     lcd = require('./lib/lcd/manager'),
-    q = require('q');
+    q = require('q'),
+    var str = require('../helpers/string');
 
 ohw.on('data', function(d){
 
-  var a = 'CPU: ' + formatter.getBar(d.cpuLoad.value,15,'Ö','Ä');
-  var b = 'GPU: ' + formatter.getBar(d.gpuLoad.value,15,'Ö','Ä');
+  var a = 'c0: ' + formatter.getBar(d.c0.value,16,'Ö','Ä'),
+      b = 'c1: ' + formatter.getBar(d.c1.value,16,'Ö','Ä'),
+      c = 'c2: ' + formatter.getBar(d.c2.value,16,'Ö','Ä'),
+      d = 'c3: ' + formatter.getBar(d.c3.value,16,'Ö','Ä');
 
-  var c = str.padR('CPU: ' + formatter.getTemp(d.cpuTemp.value) + 'C', 10).substring(0,10) +
+  var e = 'c:  ' + formatter.getBar(d.gpuCore.value,16,'Ö','Ä'),
+      f = 'm:  ' + formatter.getBar(d.gpuMem.value,16,'Ö','Ä'),
+      g = 'v:  ' + formatter.getBar(d.gpuVideo.value,16,'Ö','Ä'),
+      h = 's:  ' + formatter.getBar(d.gpuShader.value,16,'Ö','Ä');
+
+  var i = str.padR('CPU: ' + formatter.getTemp(d.cpuTemp.value) + 'C', 10).substring(0,10) +
           str.padL('GPU: ' + formatter.getTemp(d.gpuTemp.value) + 'C', 10).substring(0,10);
   
-
-  var d = str.padR('C:   ' + (100 - formatter.getPercent(d.c.value)) + '%', 10).substring(0,10) +
+  var j = str.padR('C:   ' + (100 - formatter.getPercent(d.c.value)) + '%', 10).substring(0,10) +
           str.padL('D:   ' + (100 - formatter.getPercent(d.d.value)) + '%', 10).substring(0,10);
 
   return q() 
@@ -29,25 +36,24 @@ ohw.on('data', function(d){
     .then(function(){
       lcd.display(1);
       lcd.reset();
-      lcd.write(a);
-      lcd.write(b);
-      lcd.write(c);
-      lcd.write(d);
+      lcd.write(e);
+      lcd.write(f);
+      lcd.write(g);
+      lcd.write(h);
     }) 
     .then(function(){
       lcd.display(2);
       lcd.reset();
-      lcd.write(a);
-      lcd.write(b);
-      lcd.write(c);
-      lcd.write(d);
+      lcd.write(i);
+      lcd.write(j);
+      lcd.write(str.padR(20);
+      lcd.write(str.padR(20);
     })
     .catch(function(err){
       console.log(err);
     });
 
 });
-
 
 function start(){
   console.log('running start');
