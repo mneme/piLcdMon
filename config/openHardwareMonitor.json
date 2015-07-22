@@ -8,9 +8,9 @@
     "cpuLoad": 48,
 
     "gpuCore": 71,
-    "gpuMem": 72
-    "gpuVideo": 73 
-    "gpuShader": 74 
+    "gpuMem": 72,
+    "gpuVideo": 73, 
+    "gpuShader": 74, 
     
     "cpuTemp": 21,
     "gpuTemp": 69,

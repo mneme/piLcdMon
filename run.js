@@ -3,7 +3,7 @@ var ohw = require('./lib/openHardwareMonitor/openHardwareMonitor'),
     formatter = require('./lib/formatters/general'),
     lcd = require('./lib/lcd/manager'),
     q = require('q'),
-    var str = require('../helpers/string');
+    str = require('./lib/helpers/string');
 
 ohw.on('data', function(d){
 
@@ -46,8 +46,8 @@ ohw.on('data', function(d){
       lcd.reset();
       lcd.write(i);
       lcd.write(j);
-      lcd.write(str.padR(20);
-      lcd.write(str.padR(20);
+      lcd.write(str.padR(20));
+      lcd.write(str.padR(20));
     })
     .catch(function(err){
       console.log(err);
