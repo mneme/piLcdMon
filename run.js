@@ -12,10 +12,16 @@ ohw.on('data', function(d){
       c = 'c2: ' + formatter.getBar(d.c2.value,16,'Ö','Ä'),
       d = 'c3: ' + formatter.getBar(d.c3.value,16,'Ö','Ä');
   console.log(1);
-  var e = 'c:  ' + formatter.getBar(d.gpuCore.value,16,'Ö','Ä'),
-      f = 'm:  ' + formatter.getBar(d.gpuMem.value,16,'Ö','Ä'),
-      g = 'v:  ' + formatter.getBar(d.gpuVideo.value,16,'Ö','Ä'),
-      h = 's:  ' + formatter.getBar(d.gpuShader.value,16,'Ö','Ä');
+  var e = 'c:  ' + formatter.getBar(d.gpuCore.value,16,'Ö','Ä');
+    console.log(1);
+
+  var f = 'm:  ' + formatter.getBar(d.gpuMem.value,16,'Ö','Ä');
+    console.log(1);
+
+  var g = 'v:  ' + formatter.getBar(d.gpuVideo.value,16,'Ö','Ä');
+    console.log(1);
+
+  var h = 's:  ' + formatter.getBar(d.gpuShader.value,16,'Ö','Ä');
   console.log(2);
 
   var i = str.padR('CPU: ' + formatter.getTemp(d.cpuTemp.value) + 'C', 10).substring(0,10) +
