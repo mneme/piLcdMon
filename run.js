@@ -15,7 +15,7 @@ ohw.on('data', function(data){
   var e = 'c:  ' + formatter.getBar(data.gpuCore.value,16,'Ö','Ä');
       f = 'm:  ' + formatter.getBar(data.gpuMem.value,16,'Ö','Ä'),
       g = 'v:  ' + formatter.getBar(data.gpuVideo.value,16,'Ö','Ä'),
-      h = 's:  ' + formatter.getBar(data.gpuShader.value,16,'Ö','Ä'),
+      h = 's:  ' + formatter.getBar(data.gpuShader.value,16,'Ö','Ä');
 
   var i = str.padR('CPU: ' + formatter.getTemp(data.cpuTemp.value) + 'C', 10).substring(0,10) +
           str.padL('GPU: ' + formatter.getTemp(data.gpuTemp.value) + 'C', 10).substring(0,10);
@@ -31,10 +31,10 @@ ohw.on('data', function(data){
       console.log('writing data');
       lcd.display(0);
       lcd.reset();
-      lcd.write(a);
-      lcd.write(b);
-      lcd.write(c);
-      lcd.write(d);
+      lcd.write(i);
+      lcd.write(j);
+      lcd.write(k);
+      lcd.write(str.padR('', 20));
     }) 
     .then(function(){
       lcd.display(1);
@@ -47,10 +47,10 @@ ohw.on('data', function(data){
     .then(function(){
       lcd.display(2);
       lcd.reset();
-      lcd.write(i);
-      lcd.write(j);
-      lcd.write(k);
-      lcd.write(str.padR(20));
+      lcd.write(a);
+      lcd.write(b);
+      lcd.write(c);
+      lcd.write(d);
     })
     .catch(function(err){
       console.log(err);
