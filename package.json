@@ -1,0 +1,24 @@
+{
+  "name": "node.hk.wide.2004",
+  "version": "0.0.1",
+  "description": "Small wrapper for the hk.wide arduino example for node.js/raspberry pi",
+  "main": "lib/lcd.js",
+  "scripts": {
+    "test": "NODE_ENV=test mocha -R spec '.test/**/*.spec.js'"
+  },
+  "author": "David Olsson",
+  "license": "ISC",
+  "devDependencies": {
+    "chai": "^1.10.0",
+    "chai-as-promised": "^4.1.1",
+    "gulp": "^3.9.0",
+    "mocha": "^2.0.1"
+  },
+  "dependencies": {
+    "i2c-bus": "^0.11.2",
+    "lodash": "^3.10.0",
+    "q": "^1.4.1",
+    "request": "^2.58.0",
+    "wiring-pi": "^2.0.0"
+  }
+}
