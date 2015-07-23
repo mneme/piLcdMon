@@ -6,6 +6,7 @@
   },
   "data": {
     "cpuLoad": 48,
+    "memory" : 59,
 
     "gpuCore": 71,
     "gpuMem": 72,
