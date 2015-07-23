@@ -19,8 +19,8 @@ ohw.on('data', function(data){
   
   var i = e = 'm:  ' + formatter.getBar(data.memory.value,16,'Ö','Ä');
 
-  var j = str.padR('CPU: ' + formatter.getTemp(data.cpuTemp.value) + 'C', 10).substring(0,10) +
-          str.padL('GPU: ' + formatter.getTemp(data.gpuTemp.value) + 'C', 10).substring(0,10);
+  var j = str.padR('cpu: ' + formatter.getTemp(data.cpuTemp.value) + 'C', 10).substring(0,10) +
+          str.padL('gpu: ' + formatter.getTemp(data.gpuTemp.value) + 'C', 10).substring(0,10);
 
   var k = str.padR('t1:  ' + formatter.getTemp(data.temp1.value) + 'C', 10).substring(0,10) +
           str.padL('t2:  ' + formatter.getTemp(data.temp2.value) + 'C', 10).substring(0,10);
@@ -52,7 +52,7 @@ ohw.on('data', function(data){
       lcd.write(i);
       lcd.write(j);
       lcd.write(k);
-      lcd.write(str.padR(20));
+      lcd.write(l);
     })
     .catch(function(err){
       console.log(err);
