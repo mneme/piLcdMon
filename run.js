@@ -6,15 +6,22 @@ var ohw = require('./lib/openHardwareMonitor/openHardwareMonitor'),
     str = require('./lib/helpers/string');
 
 ohw.on('data', function(data){
-  var a = 'c0: ' + formatter.getBar(data.c0.value,16,'Ö','Ä'),
-      b = 'c1: ' + formatter.getBar(data.c1.value,16,'Ö','Ä'),
-      c = 'c2: ' + formatter.getBar(data.c2.value,16,'Ö','Ä'),
-      d = 'c3: ' + formatter.getBar(data.c3.value,16,'Ö','Ä');
+  var a = 'c0: ' + formatter.getBar(data.c0.value,16,'Ö','Ä');
+  console.log('a');
+  var b = 'c1: ' + formatter.getBar(data.c1.value,16,'Ö','Ä');
+  console.log('b');
+
+  var c = 'c2: ' + formatter.getBar(data.c2.value,16,'Ö','Ä');
+  console.log('c');
+
+  var d = 'c3: ' + formatter.getBar(data.c3.value,16,'Ö','Ä');
+  console.log('d');
+
   
   var e = 'c:  ' + formatter.getBar(data.gpuCore.value,16,'Ö','Ä');
-      f = 'm:  ' + formatter.getBar(data.gpuMem.value,16,'Ö','Ä'),
-      g = 'v:  ' + formatter.getBar(data.gpuVideo.value,16,'Ö','Ä'),
-      h = 's:  ' + formatter.getBar(data.gpuShader.value,16,'Ö','Ä');
+  var f = 'm:  ' + formatter.getBar(data.gpuMem.value,16,'Ö','Ä');
+  var g = 'v:  ' + formatter.getBar(data.gpuVideo.value,16,'Ö','Ä');
+  var h = 's:  ' + formatter.getBar(data.gpuShader.value,16,'Ö','Ä');
   
   var i = 'm:  ' + formatter.getBar(data.memory.value,16,'Ö','Ä');
   
