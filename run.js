@@ -31,10 +31,10 @@ ohw.on('data', function(data){
       console.log('writing data');
       lcd.display(0);
       lcd.reset();
-      lcd.write(i);
-      lcd.write(j);
-      lcd.write(k);
-      lcd.write(str.padR('', 20));
+      lcd.write(a);
+      lcd.write(b);
+      lcd.write(c);
+      lcd.write(d);
     }) 
     .then(function(){
       lcd.display(1);
@@ -47,10 +47,10 @@ ohw.on('data', function(data){
     .then(function(){
       lcd.display(2);
       lcd.reset();
-      lcd.write(a);
-      lcd.write(b);
-      lcd.write(c);
-      lcd.write(d);
+      lcd.write(i);
+      lcd.write(j);
+      lcd.write(k);
+      lcd.write(str.padR('', 20));
     })
     .catch(function(err){
       console.log(err);
