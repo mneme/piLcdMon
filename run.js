@@ -10,18 +10,19 @@ ohw.on('data', function(data){
       b = 'c1: ' + formatter.getBar(data.c1.value,16,'Ö','Ä'),
       c = 'c2: ' + formatter.getBar(data.c2.value,16,'Ö','Ä'),
       d = 'c3: ' + formatter.getBar(data.c3.value,16,'Ö','Ä');
-  console.log(a, b, c, d);
+  
   var e = 'c:  ' + formatter.getBar(data.gpuCore.value,16,'Ö','Ä');
       f = 'm:  ' + formatter.getBar(data.gpuMem.value,16,'Ö','Ä'),
       g = 'v:  ' + formatter.getBar(data.gpuVideo.value,16,'Ö','Ä'),
       h = 's:  ' + formatter.getBar(data.gpuShader.value,16,'Ö','Ä');
   
   var i = 'm:  ' + formatter.getBar(data.memory.value,16,'Ö','Ä');
-  var j = str.padR('cpu: ' + formatter.getTemp(data.cpuTemp.value) + 'C', 10).substring(0,10) +
-          str.padL('gpu: ' + formatter.getTemp(data.gpuTemp.value) + 'C', 10).substring(0,10);
+  
+  var j = str.padR('cpu: ' + formatter.getFloat(data.cpuTemp.value) + 'C', 10).substring(0,10) +
+          str.padL('gpu: ' + formatter.getFloat(data.gpuTemp.value) + 'C', 10).substring(0,10);
 
-  var k = str.padR('t1:  ' + formatter.getTemp(data.temp1.value) + 'C', 10).substring(0,10) +
-          str.padL('t2:  ' + formatter.getTemp(data.temp2.value) + 'C', 10).substring(0,10);
+  var k = str.padR('t1:  ' + formatter.getFloat(data.temp1.value) + 'C', 10).substring(0,10) +
+          str.padL('t2:  ' + formatter.getFloat(data.temp2.value) + 'C', 10).substring(0,10);
 
   var l = str.padR('C:   ' + (100 - formatter.getFloat(data.c.value)) + '%', 10).substring(0,10) +
           str.padL('D:   ' + (100 - formatter.getFloat(data.d.value)) + '%', 10).substring(0,10);
